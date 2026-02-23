@@ -1,0 +1,14 @@
+[gd_scene format=3 uid="uid://c1p2qpl824g70"]
+
+[ext_resource type="Script" uid="uid://d4mggm1wj1twb" path="res://scripts/car_counter.gd" id="1_hhf7q"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hhf7q"]
+size = Vector2(2, 34)
+
+[node name="CarCounter" type="Area2D" unique_id=1939281358]
+script = ExtResource("1_hhf7q")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=655813983]
+shape = SubResource("RectangleShape2D_hhf7q")
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]

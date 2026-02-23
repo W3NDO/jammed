@@ -1,0 +1,8 @@
+[gd_scene format=3 uid="uid://1o320kitoue"]
+
+[ext_resource type="AudioStream" uid="uid://d24njwdmq5rec" path="res://assets/audio/jammed_ambience.wav" id="1_f6gl3"]
+
+[node name="bg_music" type="AudioStreamPlayer2D" unique_id=1577201770]
+stream = ExtResource("1_f6gl3")
+autoplay = true
+bus = &"BG_MUSIC"

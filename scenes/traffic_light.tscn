@@ -1,0 +1,50 @@
+[gd_scene format=3 uid="uid://dbjxhhysjpjxm"]
+
+[ext_resource type="Script" uid="uid://bm5lypcbax6oy" path="res://scripts/traffic_light.gd" id="1_uttgq"]
+[ext_resource type="Texture2D" uid="uid://d1iv3icxas0rq" path="res://assets/traffic_lights/green.png" id="2_va7ut"]
+[ext_resource type="Texture2D" uid="uid://w2x4qqc7tf3h" path="res://assets/traffic_lights/red.png" id="3_7bbo6"]
+[ext_resource type="Texture2D" uid="uid://bboer0ibp424k" path="res://assets/traffic_lights/neutral.png" id="3_mfnwl"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7bi0e"]
+size = Vector2(40, 9)
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_7bbo6"]
+radius = 6.0
+height = 40.0
+
+[node name="TrafficLight" type="Area2D" unique_id=1369323988]
+collision_layer = 2
+collision_mask = 0
+script = ExtResource("1_uttgq")
+green_texture = ExtResource("2_va7ut")
+red_texture = ExtResource("3_7bbo6")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=2078882469]
+position = Vector2(-16, -3)
+scale = Vector2(1.03125, 0.96875)
+texture = ExtResource("2_va7ut")
+
+[node name="Sprite2D2" type="Sprite2D" parent="." unique_id=488581833]
+position = Vector2(2, -3)
+scale = Vector2(1.03125, 0.96875)
+texture = ExtResource("2_va7ut")
+
+[node name="CollisionShapeStop" type="CollisionShape2D" parent="." unique_id=1323670590]
+shape = SubResource("RectangleShape2D_7bi0e")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=1569293738]
+collision_mask = 0
+input_pickable = true
+
+[node name="CollisionShape_input" type="CollisionShape2D" parent="StaticBody2D" unique_id=753843259]
+rotation = 1.5707964
+shape = SubResource("CapsuleShape2D_7bbo6")
+
+[node name="PointLight2D" type="PointLight2D" parent="." unique_id=314814607]
+position = Vector2(-22, -5.9999995)
+scale = Vector2(3.0625, 2.1875)
+color = Color(0.18039216, 0.8, 0.44313726, 1)
+texture = ExtResource("3_mfnwl")
+
+[connection signal="input_event" from="." to="." method="_on_input_event"]
+[connection signal="input_event" from="StaticBody2D" to="." method="_on_static_body_2d_input_event"]

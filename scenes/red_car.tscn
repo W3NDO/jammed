@@ -1,0 +1,35 @@
+[gd_scene format=3 uid="uid://bck7bonibrf1m"]
+
+[ext_resource type="Texture2D" uid="uid://q8jakncny2bs" path="res://assets/cars.png" id="1_qnu6o"]
+[ext_resource type="Script" uid="uid://ulqmtms4p76o" path="res://scripts/car_on_path.gd" id="1_spv0c"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_spv0c"]
+radius = 50.000042
+height = 270.00024
+
+[node name="PathFollow2D" type="PathFollow2D" unique_id=1958666278 groups=["cars"]]
+rotation = 1.5707964
+scale = Vector2(0.2, 0.2)
+script = ExtResource("1_spv0c")
+speed = 100.0
+detection_range = 180.0
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=536142351]
+texture = ExtResource("1_qnu6o")
+region_enabled = true
+region_rect = Rect2(233.86407, 222.32071, 118.69458, 216.13046)
+
+[node name="ray_front" type="RayCast2D" parent="." unique_id=1300503962]
+target_position = Vector2(-1.0927847e-05, -249.99997)
+collision_mask = 2
+collide_with_areas = true
+
+[node name="Area2D" type="Area2D" parent="." unique_id=439317956]
+collision_layer = 2
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=330654806]
+position = Vector2(-4.5474732e-13, 3.814697e-06)
+rotation = -3.1415925
+scale = Vector2(0.99999905, 0.99999905)
+shape = SubResource("CapsuleShape2D_spv0c")

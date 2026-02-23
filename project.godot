@@ -1,0 +1,41 @@
+; Engine configuration file.
+; It's best edited using the editor UI and not directly,
+; since the parameters that go here are not all obvious.
+;
+; Format:
+;   [section] ; section goes between []
+;   param=value ; assign values to parameters
+
+config_version=5
+
+[application]
+
+config/name="jammed"
+run/main_scene="uid://hqoltqcmt4i6"
+config/features=PackedStringArray("4.6", "Forward Plus")
+config/icon="res://icon.svg"
+
+[audio]
+
+buses/default_bus_layout="uid://m8nq2hc2hk0y"
+
+[autoload]
+
+BgMusic="*uid://1o320kitoue"
+
+[display]
+
+window/size/viewport_width=1280
+window/size/viewport_height=720
+
+[global_group]
+
+cars=""
+
+[physics]
+
+3d/physics_engine="Jolt Physics"
+
+[rendering]
+
+rendering_device/driver.windows="d3d12"
