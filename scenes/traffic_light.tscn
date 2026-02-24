@@ -3,7 +3,6 @@
 [ext_resource type="Script" uid="uid://bm5lypcbax6oy" path="res://scripts/traffic_light.gd" id="1_uttgq"]
 [ext_resource type="Texture2D" uid="uid://d1iv3icxas0rq" path="res://assets/traffic_lights/green.png" id="2_va7ut"]
 [ext_resource type="Texture2D" uid="uid://w2x4qqc7tf3h" path="res://assets/traffic_lights/red.png" id="3_7bbo6"]
-[ext_resource type="Texture2D" uid="uid://bboer0ibp424k" path="res://assets/traffic_lights/neutral.png" id="3_mfnwl"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7bi0e"]
 size = Vector2(40, 9)
@@ -39,12 +38,6 @@ input_pickable = true
 [node name="CollisionShape_input" type="CollisionShape2D" parent="StaticBody2D" unique_id=753843259]
 rotation = 1.5707964
 shape = SubResource("CapsuleShape2D_7bbo6")
-
-[node name="PointLight2D" type="PointLight2D" parent="." unique_id=314814607]
-position = Vector2(-22, -5.9999995)
-scale = Vector2(3.0625, 2.1875)
-color = Color(0.18039216, 0.8, 0.44313726, 1)
-texture = ExtResource("3_mfnwl")
 
 [connection signal="input_event" from="." to="." method="_on_input_event"]
 [connection signal="input_event" from="StaticBody2D" to="." method="_on_static_body_2d_input_event"]

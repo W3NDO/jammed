@@ -1,7 +1,9 @@
 [gd_scene format=3 uid="uid://8w42273e6w3i"]
 
 [ext_resource type="Script" uid="uid://ulqmtms4p76o" path="res://scripts/car_on_path.gd" id="1_isf5l"]
-[ext_resource type="Texture2D" uid="uid://q8jakncny2bs" path="res://assets/cars.png" id="2_apfpf"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_ogm54"]
+load_path = "res://.godot/imported/cars.png-610af3949ad057af007313bffa1fc0c2.ctex"
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_isf5l"]
 radius = 50.000042
@@ -15,7 +17,7 @@ speed = 100.0
 detection_range = 180.0
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=536142351]
-texture = ExtResource("2_apfpf")
+texture = SubResource("CompressedTexture2D_ogm54")
 region_enabled = true
 region_rect = Rect2(356.1018, 222.32071, 113.379944, 216.13046)
 

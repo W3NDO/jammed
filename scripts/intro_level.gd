@@ -3,12 +3,18 @@ extends Node2D
 @onready var routes: Node2D = $Routes
 @export var cars: Array[PackedScene] = []
 @onready var score: Label = $Score
+@onready var SceneTransitionAnimation : AnimationPlayer = $SceneTransition/AnimationPlayer
+@onready var LevelTimer: Timer = $LevelTimer
+@export var TimeLeft: int = 90
 
-var level_score := 0
+var level_score: int = 0
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	pass # Replace with function body.
+	SceneTransitionAnimation.get_parent().get_node("ColorRect").color.a = 255
+	SceneTransitionAnimation.play("fade_out")
+	await get_tree().create_timer(0.5).timeout
+	LevelTimer.start()
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -52,6 +58,15 @@ func tally_score(area: Area2D):
 	if area.get_parent().is_in_group("cars"):
 		print("car noted")
 		level_score += 1
-		score.text = "YOUR SCORE " + str(level_score)
+		score.text = "YOUR SCORE " + str(level_score) + " TIME LEFT: " + str(TimeLeft)
 	else:
 		print("not in cars group")
+
+
+func _on_level_timer_timeout() -> void:
+	TimeLeft -= 1
+	print(TimeLeft)
+	if TimeLeft <= 0:
+		print("Countdown finished")
+	else:
+		LevelTimer.start()
